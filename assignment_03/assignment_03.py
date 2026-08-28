@@ -1,124 +1,151 @@
-# ============================================================
-# 📘 PYTHON LEARNING SCRIPT — COMBINED Q&A + CODE EXAMPLES
-# ============================================================
 import numpy as np
 import subprocess
 # Clear screen on Windows
 subprocess.run("cls", shell=True)
 
 # ============================================================
-# 📌 Lists — Q&A
+# 🏴‍☠️ GRAND LINE SAGA
 # ============================================================
-
-# Q1: How do you create a list?
-my_list = [1, 2, 3]
-
-# Q2: How do you add an item to a list?
-my_list.append(4)
-
-# Q3: How do you access list items?
-first_item = my_list[0]
-
-
+from databse_03 import CREW, DEVIL_FRUITS, ZORO_SWORDS
+from functions_03 import build_crew_roster, get_fighters, reverse_roster
+from functions_03 import lookup_fruit, find_fruits_by_type, fruit_users
+from functions_03 import all_known_islands, island_overlap, unique_to_crew
+from functions_03 import stretch_attack
+from functions_03 import sword_combinations, best_combo_against
+from functions_03 import sky_walk
 # ============================================================
-# 📌 Tuples — Q&A
+# 📌 Mission 1 — The Crew Roster
 # ============================================================
+# ── Tests (do NOT modify) ─────────────────────────────────────
+r1 = build_crew_roster(["Luffy", "Zoro", "Nami"], "Jinbe", 2)
+assert r1 == ["Luffy", "Zoro", "Jinbe", "Nami"], f"Got {r1}"
 
-# Q1: How do you create a tuple?
-my_tuple = (10, 20, 30)
+r2 = build_crew_roster(["Luffy", "Zoro"], "Sanji", 0)
+assert r2 == ["Sanji", "Luffy", "Zoro"], f"Got {r2}"
 
-# Q2: Can you modify a tuple?
-# No — tuples are immutable.
+fighters = get_fighters(CREW)
+assert "Luffy" in fighters and "Zoro" in fighters and "Sanji" in fighters
+assert "Nami" not in fighters
 
-# Q3: How do you access tuple items?
-second_item = my_tuple[1]
+rev = reverse_roster(["Luffy", "Zoro", "Nami"])
+assert rev == ["Nami", "Zoro", "Luffy"]
 
-
-# ============================================================
-# 📌 Sets — Q&A
-# ============================================================
-
-# Q1: How do you create a set?
-my_set = {1, 2, 3}
-
-# Q2: Do sets allow duplicates?
-# No — duplicates are removed automatically.
-
-# Q3: How do you add an item?
-my_set.add(4)
-
+print("\u2705 Mission 1 COMPLETE — Crew roster ready!")
+print(f"   Roster with Jinbe: {r1}")
+print(f"   Fighters (power > 80): {fighters}")
 
 # ============================================================
-# 📌 Dictionaries — Q&A
+# ⚔️ Mission 2 — The Devil Fruit Encyclopedia
 # ============================================================
+# ── Tests (do NOT modify) ─────────────────────────────────────
+r1 = lookup_fruit(DEVIL_FRUITS, "Gomu Gomu")
+assert r1["user"] == "Luffy" and r1["type"] == "Paramecia"
 
-# Q1: How do you create a dictionary?
-person = {"name": "Aditya", "city": "Plano"}
+r2 = lookup_fruit(DEVIL_FRUITS, "Fake Fruit")
+assert r2 == "Unknown fruit"
 
-# Q2: How do you access a value?
-name_value = person["name"]
+logias = find_fruits_by_type(DEVIL_FRUITS, "Logia")
+assert len(logias) == 2 and "Mera Mera" in logias
 
-# Q3: How do you add/update a key?
-person["age"] = 30
+users = fruit_users(DEVIL_FRUITS)
+assert users["Luffy"] == "Gomu Gomu" and users["Robin"] == "Hana Hana"
 
-
-# ============================================================
-# 📌 Functions — Q&A
-# ============================================================
-
-# Q1: How do you define a function?
-def greet():
-    print("Hello, Aditya!")
-
-# Q2: How do you pass arguments?
-def add(a, b):
-    return a + b
-
-# Q3: What is a return value?
-# The value a function gives back using 'return'.
-
+print("\u2705 Mission 2 COMPLETE — Devil Fruit Encyclopedia built!")
+print(f"   Logia fruits: {list(logias.keys())}")
+print(f"   Luffy ate: {users['Luffy']}")
 
 # ============================================================
-# 📌 For Loop — Q&A
+# ⚔️ Mission 3 — Island Intelligence
 # ============================================================
+# ── Tests (do NOT modify) ─────────────────────────────────────
+straw_hat_islands = {"Alabasta", "Water 7", "Dressrosa", "Whole Cake", "Wano"}
+heart_pirate_islands = {"Dressrosa", "Wano", "Zou", "Sabaody"}
 
-# Q1: Loop through a list
-for item in [100, 200, 300]:
-    print("Item:", item)
+overlap = island_overlap(straw_hat_islands, heart_pirate_islands)
+assert overlap == {"Dressrosa", "Wano"}, f"Got {overlap}"
 
-# Q2: Loop with range
-for i in range(5):
-    print("Index:", i)
+only_sh = unique_to_crew(straw_hat_islands, heart_pirate_islands)
+assert only_sh == {"Alabasta", "Water 7", "Whole Cake"}, f"Got {only_sh}"
 
+all_isl = all_known_islands(straw_hat_islands, heart_pirate_islands)
+assert len(all_isl) == 7
 
-# ============================================================
-# 📌 Break Statement
-# ============================================================
-
-for num in range(10):
-    if num == 5:
-        break   # stops the loop
-    print("Break example:", num)
-
+print("\u2705 Mission 3 COMPLETE — Island intel gathered!")
+print(f"   Both visited: {overlap}")
+print(f"   Only Straw Hats: {only_sh}")
+print(f"   Total unique islands: {len(all_isl)}")
 
 # ============================================================
-# 📌 Continue Statement
+# 🏴‍☠️ Act II — Battle on the Grand Line
 # ============================================================
+# ============================================================
+# ⚔️ Mission 4 — Luffy's Stretch Calculator
+# ============================================================
+# ── Tests (do NOT modify) ─────────────────────────────────────
+r1 = stretch_attack(10)
+assert r1["can_reach"] == True and r1["reach"] == 15 and r1["gap"] == 5 and r1["power"] == 100
 
-for num in range(10):
-    if num == 5:
-        continue   # skips this iteration
-    print("Continue example:", num)
+r2 = stretch_attack(22)
+assert r2["can_reach"] == False and r2["gap"] == -7
+
+r3 = stretch_attack(22, gear="gear2")
+assert r3["can_reach"] == True and r3["reach"] == 22.5 and r3["power"] == 120.0
+
+r4 = stretch_attack(25, gear="gear3")
+assert r4["can_reach"] == True and r4["reach"] == 30 and r4["power"] == 70.0
+
+r5 = stretch_attack(35, gear="gear3")
+assert r5["can_reach"] == False
+
+print("\u2705 Mission 4 COMPLETE — Stretch calculator ready!")
+print(f"   10m normal: reach={r1['reach']}m, can_reach={r1['can_reach']}")
+print(f"   22m gear2:  reach={r3['reach']}m, power={r3['power']}")
+print(f"   25m gear3:  reach={r4['reach']}m, power={r4['power']}")
 
 # ============================================================
-# 📌 Enumerate Statement
+# ⚔️ Mission 5 — Zoro's Sword Combinations
 # ============================================================
-'''
-list1 = [10,20,30,45,56,67]
-for index, value in enumerate(list1):
-    print(index, value)
+# ── Tests (do NOT modify) ─────────────────────────────────────
+combos = sword_combinations(ZORO_SWORDS)
+assert len(combos) == 3, f"3 swords = 3 combos, got {len(combos)}"
 
-s = "Interview"
-for i,j in enumerate(s):
-    print(i, j)
-'''
+attacks = [c["combined_attack"] for c in combos]
+assert 175 in attacks and 150 in attacks and 165 in attacks
+
+best = best_combo_against(ZORO_SWORDS, 140)
+assert best["attack"] == 175 and best["win_chance"] == 1.0
+
+weak = best_combo_against(ZORO_SWORDS, 200)
+assert weak["win_chance"] == 175 / 200
+
+print("\u2705 Mission 5 COMPLETE — Sword combos calculated!")
+print(f"   Combos: {[(c['sword_1'], c['sword_2'], c['combined_attack']) for c in combos]}")
+print(f"   Best vs 140 def: {best['best_combo']}, win={best['win_chance']:.0%}")
+print(f"   Best vs 200 def: win={weak['win_chance']:.1%}")
+
+# ============================================================
+# ⚔️ MISSION 6 — SANJI'S SKY WALK
+# ============================================================
+# ── Tests (do NOT modify) ─────────────────────────────────────
+r1 = sky_walk(20)
+assert r1["reached"] == True
+assert r1["altitude"] == 22.5  # 5 kicks * 4.5m
+assert r1["kicks_used"] == 5
+assert r1["stamina_left"] == 40
+assert r1["kick_power"] == 107.8  # 88 * (1 + 22.5/100)
+
+r2 = sky_walk(100)
+assert r2["reached"] == False  # can't reach 100m
+
+r3 = sky_walk(10)
+assert r3["reached"] == True
+assert r3["kicks_used"] == 3  # 3 * 4.5 = 13.5 >= 10
+
+r4 = sky_walk(50, stamina=36, stamina_per_kick=12)
+assert r4["kicks_used"] == 3  # only enough stamina for 3 kicks
+assert r4["reached"] == False  # 3 * 4.5 = 13.5 < 50
+
+print("\u2705 Mission 6 COMPLETE — Sky Walk calculated!")
+print(f"   20m enemy: reached={r1['reached']}, {r1['kicks_used']} kicks, power={r1['kick_power']}")
+print(f"   100m enemy: reached={r2['reached']} (too high!)")
+print(f"   Low stamina test: {r4['kicks_used']} kicks, reached={r4['reached']}")
