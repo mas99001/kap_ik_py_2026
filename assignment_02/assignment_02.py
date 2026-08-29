@@ -6,13 +6,13 @@ subprocess.run("cls", shell=True)
 # ============================================================
 # 🏴‍☠️ GRAND LINE SAGA
 # ============================================================
-from assignment_02.databse_02 import CREW, DEVIL_FRUITS, ZORO_SWORDS
-from assignment_02.functions_02 import build_crew_roster, get_fighters, reverse_roster
-from assignment_02.functions_02 import lookup_fruit, find_fruits_by_type, fruit_users
-from assignment_02.functions_02 import all_known_islands, island_overlap, unique_to_crew
-from assignment_02.functions_02 import stretch_attack
-from assignment_02.functions_02 import sword_combinations, best_combo_against
-from assignment_02.functions_02 import sky_walk
+from database_02 import CREW, DEVIL_FRUITS, ZORO_SWORDS
+from functions_02 import build_crew_roster, get_fighters, reverse_roster
+from functions_02 import lookup_fruit, find_fruits_by_type, fruit_users
+from functions_02 import all_known_islands, island_overlap, unique_to_crew
+from functions_02 import stretch_attack
+from functions_02 import sword_combinations, best_combo_against
+from functions_02 import sky_walk
 # ============================================================
 # 📌 Mission 1 — The Crew Roster
 # ============================================================
