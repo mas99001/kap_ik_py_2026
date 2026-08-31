@@ -1,0 +1,15 @@
+{
+  "team_name": "Mumbai Indians",
+  "total_runs": 13,
+  "wickets": 1,
+  "balls": 6,
+  "current_over": "1.0",
+  "run_rate": 13.0,
+  "deliveries": [
+    4,
+    0,
+    6,
+    1,
+    2
+  ]
+}
