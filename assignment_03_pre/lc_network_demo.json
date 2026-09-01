@@ -1,0 +1,86 @@
+{
+  "7": {
+    "name": "Harbour Express",
+    "stops": [
+      "Central Bus Stand",
+      "Fort",
+      "Harbour",
+      "Navy Nagar",
+      "Colaba"
+    ],
+    "base_fare": 20.0,
+    "is_ac": true,
+    "capacity": 60,
+    "operator": "BEST"
+  },
+  "12": {
+    "name": "Airport Shuttle",
+    "stops": [
+      "Majestic",
+      "MG Road",
+      "Hebbal",
+      "Airport T1",
+      "Airport T2"
+    ],
+    "base_fare": 35.0,
+    "is_ac": true,
+    "capacity": 45,
+    "operator": "KSRTC"
+  },
+  "31": {
+    "name": "City Loop",
+    "stops": [
+      "KR Market",
+      "Shivajinagar",
+      "MG Road",
+      "Richmond",
+      "Jayanagar"
+    ],
+    "base_fare": 12.0,
+    "is_ac": false,
+    "capacity": 80,
+    "operator": "BMTC"
+  },
+  "42": {
+    "name": "North Connector",
+    "stops": [
+      "Yeshwanthpur",
+      "Peenya",
+      "Tumkur Road",
+      "Nelamangala",
+      "Dobbaspet"
+    ],
+    "base_fare": 18.0,
+    "is_ac": false,
+    "capacity": 80,
+    "operator": "BMTC"
+  },
+  "55": {
+    "name": "South Express",
+    "stops": [
+      "Majestic",
+      "Jayanagar",
+      "JP Nagar",
+      "Bannerghatta Rd",
+      "Electronic City"
+    ],
+    "base_fare": 15.0,
+    "is_ac": true,
+    "capacity": 60,
+    "operator": "BMTC"
+  },
+  "88": {
+    "name": "Tech Corridor",
+    "stops": [
+      "Silk Board",
+      "HSR Layout",
+      "Koramangala",
+      "Indiranagar",
+      "MG Road"
+    ],
+    "base_fare": 22.0,
+    "is_ac": true,
+    "capacity": 50,
+    "operator": "KSRTC"
+  }
+}
