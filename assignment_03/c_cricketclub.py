@@ -54,7 +54,7 @@ class CricketClub:
     def calculate_strike_rate(self, runs, balls_faced):
         if(balls_faced == 0):
             return 0.0
-        elif(runs < 0):
+        elif((runs < 0) or (balls_faced < 0)):
             raise ValueError("Runs cannot be negative")
         else:
             return round((float(runs)/float(balls_faced))*(100.0),1)
