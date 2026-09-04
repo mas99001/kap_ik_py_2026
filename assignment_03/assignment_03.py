@@ -120,7 +120,6 @@ print(f"   Hardik (AllRounder) rating: {hardik.performance_rating()}")
 #
 def analyze_squad(squad_list):
     result = {"ratings": [], "batsmen": [], "bowlers": [], "all_rounders": [], "mvp": ''}
-    rat = []
     for player in squad_list:
         result["ratings"].append((player.name, player.role, player.performance_rating()))
         if(isinstance(player, Batsman)):
