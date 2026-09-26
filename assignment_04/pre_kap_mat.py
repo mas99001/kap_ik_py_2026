@@ -57,7 +57,6 @@ plt.title("Score distribution")
 plt.xlabel("Score")
 plt.ylabel("Count")
 plt.tight_layout()
-'''
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -71,3 +70,11 @@ ax[1, 0].plot(x, x**2,      color="#2dd4bf");   ax[1, 0].set_title("x²")
 ax[1, 1].plot(x, np.log(x+1), color="#5eead4"); ax[1, 1].set_title("log")
 plt.tight_layout()
 plt.show()
+'''
+
+
+import gradio as gr
+def greet(name):
+  return "Hello, " + name + "!"
+demo = gr.Interface(fn=greet, inputs="text", outputs="text")
+demo.launch(share=True)

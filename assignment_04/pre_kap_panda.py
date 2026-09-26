@@ -17,7 +17,6 @@ df['PP'] = df['Population'] / (df['Population'].mean())
 print(df)
 '''
 
-#'''
 df1 = pd.read_csv("sales.csv", sep="\t")
 print("\n#          INFO          #" )
 print(df1.info())
@@ -27,8 +26,6 @@ print("\n#          HEAD          #" )
 print(df1.head())
 print("\n#          SHAPE          #" )
 print("shape:", df1.shape)
-#'''
-'''
 print('One Column:\n', df1["City"].head(), '\n')
 df = pd.read_csv("sales.csv", sep="\t")
 print(repr(df.columns))
@@ -37,6 +34,7 @@ print("one column :\n", df["City"].head(), "\n")
 print("two cols   :\n", df[["City", "Revenue"]].head(), "\n")
 print("loc by label:\n", df.loc[0:2, ["City", "Revenue"]], "\n")
 print("iloc by pos :\n", df.iloc[0:2, 0:3])
+'''
 
 big = df[df["Revenue"] > 2000]
 print(big)
